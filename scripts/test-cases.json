@@ -1,0 +1,16 @@
+[
+  {
+    "id": "0",
+    "name":"scenario 1",
+    "concurrency":"1",
+    "sub-script":"script1.sh"
+  },
+
+    {
+	        "id": "1",
+		    "name":"scenario 2",
+		        "concurrency":"2",
+			    "sub-script":"script1.sh"
+			      }
+
+]
