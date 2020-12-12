@@ -5,9 +5,9 @@
 const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const processResponse = require('./process-response');
-const TABLE_NAME = "covid19"
+const TABLE_NAME = process.env.TABLE_NAME;
 const IS_CORS = true;
-const LIMIT = 300
+const LIMIT = process.env.LIMIT;
 
 exports.handler = async event => {
   if (event.httpMethod === 'OPTIONS') {
@@ -21,11 +21,6 @@ exports.handler = async event => {
   }
   try {
     const response = await dynamoDb.scan(params).promise();
-    // return {
-    //   statusCode: 200,
-    //   body: JSON.stringify(response) || '',
-    //   //headers: headers
-    // };
     return processResponse(true, response.Items);
   } catch (dbError) {
     let errorResponse = `Error: Execution get, caused a Dynamodb error, please look at your logs.`;
