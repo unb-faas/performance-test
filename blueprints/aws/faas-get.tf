@@ -61,7 +61,7 @@ resource "aws_lambda_permission" "allow_cloudwatch" {
   action        = "lambda:BasicExecution"
   function_name = aws_lambda_function.get.function_name
   principal     = "events.amazonaws.com"
-  source_arn    = "arn:aws:events:us-east-1:111122223333:rule/RunDaily"
+  source_arn    = "arn:aws:events:${var.region}:111122223333:rule/RunDaily"
   qualifier     = aws_lambda_alias.alias.name
 }
 

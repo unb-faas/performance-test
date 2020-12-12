@@ -29,9 +29,6 @@ EOF
 }
 
 resource "aws_iam_policy" "basic-lambda-policy" {
-  # name        = "basic-lambda-policy"
-  # description = "basic-lambda-policy"
-
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -51,8 +48,6 @@ EOF
 }
 
 resource "aws_iam_policy" "dynamodb-policy" {
-  # name        = "dynamodb-lambda-policy"
-  # description = "dynamodb-policy"
   policy = <<EOF
 {
   "Version": "2012-10-17",
