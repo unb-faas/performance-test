@@ -5,3 +5,6 @@ aws-credentials.tmp
 gcp-credentials.tmp
 azure-credentials.tmp
 *.zip
+*.tmp
+*.csv
+*url_*

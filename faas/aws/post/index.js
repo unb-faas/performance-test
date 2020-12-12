@@ -35,5 +35,7 @@ exports.handler = async event => {
 };
 
 function getID(){
-  return parseInt(process.hrtime())
+  const hrTime = process.hrtime()
+  const microTime = hrTime[0] * 1000000 + hrTime[1] / 1000
+  return parseInt(microTime)
 }

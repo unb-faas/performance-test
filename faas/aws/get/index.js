@@ -14,10 +14,9 @@ exports.handler = async event => {
     return processResponse(IS_CORS);
   }
   let params = {
-    TableName: TABLE_NAME//,
-    // Limit: LIMIT,
-    // Segment: getSegment(),
-    // TotalSegments: LIMIT,
+    TableName: TABLE_NAME,
+    Segment: getSegment(),
+    TotalSegments: LIMIT,
   }
   try {
     const response = await dynamoDb.scan(params).promise();
@@ -33,8 +32,7 @@ exports.handler = async event => {
 };
 
 function getSegment(){
-    return 0
-    //return getRandomArbitrary(0,1000000/LIMIT)
+    return getRandomArbitrary(0,LIMIT)
 }
 
 function getRandomArbitrary(min, max) {

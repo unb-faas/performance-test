@@ -1,5 +1,6 @@
 #/bin/bash
 PROVIDERS="aws"
+FAAS="get post delete"
 echo "Checking requirements..."
 if ! command -v terraform &> /dev/null
 then
@@ -23,7 +24,10 @@ for i in $PROVIDERS; do
     echo "Unprovisioning ${i} environment..."
     cd ../blueprints/$i
     terraform init >> /dev/null
-    terraform destroy -auto-approve
+    terraform destroy -auto-approve >> last-unprovision.log
+    for x in $FAAS; do
+        rm -f "url_${x}.tmp"
+    done
     cd - >> /dev/null
 done 
 

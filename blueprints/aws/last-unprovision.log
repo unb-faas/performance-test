@@ -1,0 +1,300 @@
+[0m[1maws_dynamodb_table.ddbtable: Refreshing state... [id=covid19][0m
+[0m[1maws_s3_bucket.b: Refreshing state... [id=unbfaas][0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Refreshing state... [id=gkuteg6l1g][0m
+[0m[1maws_iam_role.faas-evaluation: Refreshing state... [id=faas-evaluation][0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Refreshing state... [id=low8kchh1h][0m
+[0m[1maws_iam_policy.basic-lambda-policy: Refreshing state... [id=arn:aws:iam::270561134573:policy/terraform-20201212103007005100000001][0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Refreshing state... [id=bdwylb1vl5][0m
+[0m[1maws_iam_policy.dynamodb-policy: Refreshing state... [id=arn:aws:iam::270561134573:policy/terraform-20201212103008739900000002][0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Refreshing state... [id=gp62ll][0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Refreshing state... [id=agm-bdwylb1vl5-4izkpq7w2e-ANY][0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Refreshing state... [id=t39grc][0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Refreshing state... [id=agm-low8kchh1h-tve2m88cef-ANY][0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Refreshing state... [id=faas-evaluation-20201212103009822000000003][0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Refreshing state... [id=svrwe4][0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Refreshing state... [id=agm-gkuteg6l1g-007xru6mmb-ANY][0m
+[0m[1maws_api_gateway_method.post-proxy-method: Refreshing state... [id=agm-bdwylb1vl5-gp62ll-ANY][0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Refreshing state... [id=agm-low8kchh1h-t39grc-ANY][0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Refreshing state... [id=faas-evaluation-20201212103011501800000004][0m
+[0m[1maws_api_gateway_method.get-proxy-method: Refreshing state... [id=agm-gkuteg6l1g-svrwe4-ANY][0m
+[0m[1maws_s3_bucket_object.delete-object: Refreshing state... [id=delete.zip][0m
+[0m[1maws_s3_bucket_object.get-object: Refreshing state... [id=get.zip][0m
+[0m[1maws_s3_bucket_object.post-object: Refreshing state... [id=post.zip][0m
+[0m[1maws_lambda_function.post-faas: Refreshing state... [id=faas-evaluation-post][0m
+[0m[1maws_lambda_function.delete-faas: Refreshing state... [id=faas-evaluation-delete][0m
+[0m[1maws_lambda_function.get-faas: Refreshing state... [id=faas-evaluation-get][0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_lambda_alias.post-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-post:post-alias][0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Refreshing state... [id=agi-bdwylb1vl5-4izkpq7w2e-ANY][0m
+[0m[1maws_api_gateway_integration.post-lambda: Refreshing state... [id=agi-bdwylb1vl5-gp62ll-ANY][0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_lambda_alias.delete-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-delete:delete-alias][0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Refreshing state... [id=agi-low8kchh1h-tve2m88cef-ANY][0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_api_gateway_integration.delete-lambda: Refreshing state... [id=agi-low8kchh1h-t39grc-ANY][0m
+[0m[1maws_api_gateway_integration.get-lambda: Refreshing state... [id=agi-gkuteg6l1g-svrwe4-ANY][0m
+[0m[1maws_lambda_alias.get-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-get:get-alias][0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Refreshing state... [id=agi-gkuteg6l1g-007xru6mmb-ANY][0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Refreshing state... [id=07la7e][0m
+[0m[1maws_api_gateway_deployment.post-deploy: Refreshing state... [id=zvl8i0][0m
+[0m[1maws_api_gateway_deployment.get-deploy: Refreshing state... [id=kaxnpl][0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_api_gateway_deployment.get-deploy: Destroying... [id=kaxnpl][0m[0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Destroying... [id=faas-evaluation-20201212103011501800000004][0m[0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Destroying... [id=07la7e][0m[0m
+[0m[1maws_api_gateway_deployment.post-deploy: Destroying... [id=zvl8i0][0m[0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Destroying... [id=faas-evaluation-20201212103009822000000003][0m[0m
+[0m[1maws_api_gateway_deployment.get-deploy: Destruction complete after 2s[0m[0m
+[0m[1maws_iam_policy.dynamodb-policy: Destroying... [id=arn:aws:iam::270561134573:policy/terraform-20201212103008739900000002][0m[0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Destruction complete after 0s[0m[0m
+[0m[1maws_lambda_alias.delete-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-delete:delete-alias][0m[0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Destruction complete after 2s[0m[0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Destruction complete after 3s[0m[0m
+[0m[1maws_lambda_alias.get-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-get:get-alias][0m[0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Destruction complete after 3s[0m[0m
+[0m[1maws_api_gateway_integration.get-lambda: Destroying... [id=agi-gkuteg6l1g-svrwe4-ANY][0m[0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Destroying... [id=agi-gkuteg6l1g-007xru6mmb-ANY][0m[0m
+[0m[1maws_iam_policy.dynamodb-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Destruction complete after 2s[0m[0m
+[0m[1maws_iam_policy.basic-lambda-policy: Destroying... [id=arn:aws:iam::270561134573:policy/terraform-20201212103007005100000001][0m[0m
+[0m[1maws_dynamodb_table.ddbtable: Destroying... [id=covid19][0m[0m
+[0m[1maws_lambda_alias.delete-alias: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_deployment.post-deploy: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_alias.get-alias: Destruction complete after 0s[0m[0m
+[0m[1maws_lambda_alias.post-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-post:post-alias][0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda: Destroying... [id=agi-low8kchh1h-t39grc-ANY][0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Destroying... [id=agi-low8kchh1h-tve2m88cef-ANY][0m[0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_integration.get-lambda: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_integration.post-lambda: Destroying... [id=agi-bdwylb1vl5-gp62ll-ANY][0m[0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Destroying... [id=agi-bdwylb1vl5-4izkpq7w2e-ANY][0m[0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Destruction complete after 4s[0m[0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Destruction complete after 4s[0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Destroying... [id=agm-gkuteg6l1g-007xru6mmb-ANY][0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method: Destroying... [id=agm-gkuteg6l1g-svrwe4-ANY][0m[0m
+[0m[1maws_lambda_alias.post-alias: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Destruction complete after 3s[0m[0m
+[0m[1maws_lambda_function.get-faas: Destroying... [id=faas-evaluation-get][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Destroying... [id=agm-low8kchh1h-t39grc-ANY][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Destroying... [id=agm-low8kchh1h-tve2m88cef-ANY][0m[0m
+[0m[1maws_lambda_function.delete-faas: Destroying... [id=faas-evaluation-delete][0m[0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Destroying... [id=agm-bdwylb1vl5-4izkpq7w2e-ANY][0m[0m
+[0m[1maws_iam_policy.basic-lambda-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_integration.post-lambda: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Destroying... [id=svrwe4][0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method: Destroying... [id=agm-bdwylb1vl5-gp62ll-ANY][0m[0m
+[0m[1maws_lambda_function.post-faas: Destroying... [id=faas-evaluation-post][0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Destroying... [id=t39grc][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_function.get-faas: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_function.delete-faas: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket_object.get-object: Destroying... [id=get.zip][0m[0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_function.post-faas: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket_object.delete-object: Destroying... [id=delete.zip][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Destroying... [id=gkuteg6l1g][0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method: Destruction complete after 1s[0m[0m
+[0m[1maws_iam_role.faas-evaluation: Destroying... [id=faas-evaluation][0m[0m
+[0m[1maws_s3_bucket_object.post-object: Destroying... [id=post.zip][0m[0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Destroying... [id=gp62ll][0m[0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Destroying... [id=low8kchh1h][0m[0m
+[0m[1maws_s3_bucket_object.get-object: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket_object.delete-object: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket_object.post-object: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket.b: Destroying... [id=unbfaas][0m[0m
+[0m[1maws_dynamodb_table.ddbtable: Destruction complete after 3s[0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Destroying... [id=bdwylb1vl5][0m[0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Destruction complete after 1s[0m[0m
+[0m[1maws_iam_role.faas-evaluation: Destruction complete after 2s[0m[0m
+[0m[1maws_s3_bucket.b: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 10s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 20s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 30s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 40s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 50s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 1m0s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 1m10s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 1m20s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Still destroying... [id=bdwylb1vl5, 1m30s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Destruction complete after 1m37s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 46 destroyed.[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Refreshing state... [id=lxaz1v4zy2][0m
+[0m[1maws_iam_role.faas-evaluation: Refreshing state... [id=faas-evaluation][0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Refreshing state... [id=8bdix9zn7a][0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Refreshing state... [id=7dgalhmb63][0m
+[0m[1maws_iam_policy.basic-lambda-policy: Refreshing state... [id=arn:aws:iam::270561134573:policy/terraform-20201212154140602900000001][0m
+[0m[1maws_dynamodb_table.ddbtable: Refreshing state... [id=covid19][0m
+[0m[1maws_s3_bucket.b: Refreshing state... [id=unbfaas][0m
+[0m[1maws_iam_policy.dynamodb-policy: Refreshing state... [id=arn:aws:iam::270561134573:policy/terraform-20201212154142341100000002][0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Refreshing state... [id=84kz02][0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Refreshing state... [id=agm-lxaz1v4zy2-iqbrwj43sd-ANY][0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Refreshing state... [id=faas-evaluation-20201212154143427900000003][0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Refreshing state... [id=rdgijt][0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Refreshing state... [id=agm-8bdix9zn7a-nmkz31he82-ANY][0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Refreshing state... [id=pth5gd][0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Refreshing state... [id=agm-7dgalhmb63-7en0fyqzli-ANY][0m
+[0m[1maws_api_gateway_method.post-proxy-method: Refreshing state... [id=agm-lxaz1v4zy2-84kz02-ANY][0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Refreshing state... [id=faas-evaluation-20201212154145214400000004][0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Refreshing state... [id=agm-7dgalhmb63-pth5gd-ANY][0m
+[0m[1maws_api_gateway_method.get-proxy-method: Refreshing state... [id=agm-8bdix9zn7a-rdgijt-ANY][0m
+[0m[1maws_s3_bucket_object.get-object: Refreshing state... [id=get.zip][0m
+[0m[1maws_s3_bucket_object.post-object: Refreshing state... [id=post.zip][0m
+[0m[1maws_s3_bucket_object.delete-object: Refreshing state... [id=delete.zip][0m
+[0m[1maws_lambda_function.get-faas: Refreshing state... [id=faas-evaluation-get][0m
+[0m[1maws_lambda_function.post-faas: Refreshing state... [id=faas-evaluation-post][0m
+[0m[1maws_lambda_function.delete-faas: Refreshing state... [id=faas-evaluation-delete][0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Refreshing state... [id=agi-lxaz1v4zy2-iqbrwj43sd-ANY][0m
+[0m[1maws_lambda_alias.post-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-post:post-alias][0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_api_gateway_integration.post-lambda: Refreshing state... [id=agi-lxaz1v4zy2-84kz02-ANY][0m
+[0m[1maws_lambda_alias.get-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-get:get-alias][0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Refreshing state... [id=agi-8bdix9zn7a-nmkz31he82-ANY][0m
+[0m[1maws_api_gateway_integration.get-lambda: Refreshing state... [id=agi-8bdix9zn7a-rdgijt-ANY][0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_lambda_alias.delete-alias: Refreshing state... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-delete:delete-alias][0m
+[0m[1maws_api_gateway_integration.delete-lambda: Refreshing state... [id=agi-7dgalhmb63-pth5gd-ANY][0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Refreshing state... [id=AllowAPIGatewayInvoke][0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Refreshing state... [id=AllowDynamoDBInvoke][0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Refreshing state... [id=agi-7dgalhmb63-7en0fyqzli-ANY][0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_api_gateway_deployment.post-deploy: Refreshing state... [id=su8psb][0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_api_gateway_deployment.get-deploy: Refreshing state... [id=6rzyfm][0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Refreshing state... [id=AllowExecutionFromCloudWatch][0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Refreshing state... [id=qkf0sq][0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Destroying... [id=faas-evaluation-20201212154143427900000003][0m[0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Destroying... [id=qkf0sq][0m[0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Destroying... [id=AllowExecutionFromCloudWatch][0m[0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Destroying... [id=faas-evaluation-20201212154145214400000004][0m[0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_iam_role_policy_attachment.iam-role-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_deployment.post-deploy: Destroying... [id=su8psb][0m[0m
+[0m[1maws_iam_role_policy_attachment.dynamodb-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_deployment.get-deploy: Destroying... [id=6rzyfm][0m[0m
+[0m[1maws_lambda_permission.get-allow-dynamodb: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.delete-allow-cloudwatch: Destruction complete after 2s[0m[0m
+[0m[1maws_lambda_permission.post-allow-dynamodb: Destruction complete after 2s[0m[0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Destroying... [id=AllowAPIGatewayInvoke][0m[0m
+[0m[1maws_iam_policy.basic-lambda-policy: Destroying... [id=arn:aws:iam::270561134573:policy/terraform-20201212154140602900000001][0m[0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Destroying... [id=AllowDynamoDBInvoke][0m[0m
+[0m[1maws_api_gateway_deployment.delete-deploy: Destruction complete after 2s[0m[0m
+[0m[1maws_iam_policy.dynamodb-policy: Destroying... [id=arn:aws:iam::270561134573:policy/terraform-20201212154142341100000002][0m[0m
+[0m[1maws_api_gateway_deployment.post-deploy: Destruction complete after 2s[0m[0m
+[0m[1maws_lambda_alias.delete-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-delete:delete-alias][0m[0m
+[0m[1maws_lambda_permission.post-allow-apigateway: Destruction complete after 3s[0m[0m
+[0m[1maws_lambda_permission.get-allow-apigateway: Destruction complete after 3s[0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda: Destroying... [id=agi-7dgalhmb63-pth5gd-ANY][0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Destroying... [id=agi-7dgalhmb63-7en0fyqzli-ANY][0m[0m
+[0m[1maws_api_gateway_deployment.get-deploy: Destruction complete after 2s[0m[0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Destroying... [id=agi-lxaz1v4zy2-iqbrwj43sd-ANY][0m[0m
+[0m[1maws_iam_policy.basic-lambda-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.delete-allow-apigateway: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_integration.post-lambda: Destroying... [id=agi-lxaz1v4zy2-84kz02-ANY][0m[0m
+[0m[1maws_api_gateway_integration.get-lambda: Destroying... [id=agi-8bdix9zn7a-rdgijt-ANY][0m[0m
+[0m[1maws_iam_policy.dynamodb-policy: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Destroying... [id=agi-8bdix9zn7a-nmkz31he82-ANY][0m[0m
+[0m[1maws_lambda_alias.delete-alias: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda_root: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_integration.delete-lambda: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Destroying... [id=agm-7dgalhmb63-7en0fyqzli-ANY][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Destroying... [id=agm-7dgalhmb63-pth5gd-ANY][0m[0m
+[0m[1maws_api_gateway_integration.post-lambda_root: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Destroying... [id=agm-lxaz1v4zy2-iqbrwj43sd-ANY][0m[0m
+[0m[1maws_api_gateway_integration.post-lambda: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method: Destroying... [id=agm-lxaz1v4zy2-84kz02-ANY][0m[0m
+[0m[1maws_lambda_permission.post-allow-cloudwatch: Destruction complete after 4s[0m[0m
+[0m[1maws_api_gateway_integration.get-lambda_root: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_permission.get-allow-cloudwatch: Destruction complete after 4s[0m[0m
+[0m[1maws_lambda_alias.post-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-post:post-alias][0m[0m
+[0m[1maws_api_gateway_integration.get-lambda: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Destroying... [id=agm-8bdix9zn7a-nmkz31he82-ANY][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method-root: Destruction complete after 0s[0m[0m
+[0m[1maws_lambda_alias.get-alias: Destroying... [id=arn:aws:lambda:us-east-1:270561134573:function:faas-evaluation-get:get-alias][0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method: Destroying... [id=agm-8bdix9zn7a-rdgijt-ANY][0m[0m
+[0m[1maws_api_gateway_method.delete-proxy-method: Destruction complete after 0s[0m[0m
+[0m[1maws_lambda_permission.delete-allow-dynamodb: Destruction complete after 2s[0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method-root: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Destroying... [id=pth5gd][0m[0m
+[0m[1maws_api_gateway_method.post-proxy-method: Destruction complete after 1s[0m[0m
+[0m[1maws_dynamodb_table.ddbtable: Destroying... [id=covid19][0m[0m
+[0m[1maws_lambda_function.delete-faas: Destroying... [id=faas-evaluation-delete][0m[0m
+[0m[1maws_lambda_alias.post-alias: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Destroying... [id=84kz02][0m[0m
+[0m[1maws_lambda_function.post-faas: Destroying... [id=faas-evaluation-post][0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method-root: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_method.get-proxy-method: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_alias.get-alias: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Destroying... [id=rdgijt][0m[0m
+[0m[1maws_lambda_function.get-faas: Destroying... [id=faas-evaluation-get][0m[0m
+[0m[1maws_api_gateway_resource.delete-proxy-resource: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Destroying... [id=7dgalhmb63][0m[0m
+[0m[1maws_api_gateway_resource.post-proxy-resource: Destruction complete after 0s[0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Destroying... [id=lxaz1v4zy2][0m[0m
+[0m[1maws_lambda_function.delete-faas: Destruction complete after 0s[0m[0m
+[0m[1maws_s3_bucket_object.delete-object: Destroying... [id=delete.zip][0m[0m
+[0m[1maws_lambda_function.post-faas: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_resource.get-proxy-resource: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Destroying... [id=8bdix9zn7a][0m[0m
+[0m[1maws_s3_bucket_object.post-object: Destroying... [id=post.zip][0m[0m
+[0m[1maws_api_gateway_rest_api.delete-rest-api: Destruction complete after 1s[0m[0m
+[0m[1maws_lambda_function.get-faas: Destruction complete after 1s[0m[0m
+[0m[1maws_iam_role.faas-evaluation: Destroying... [id=faas-evaluation][0m[0m
+[0m[1maws_s3_bucket_object.get-object: Destroying... [id=get.zip][0m[0m
+[0m[1maws_s3_bucket_object.delete-object: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.post-rest-api: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket_object.post-object: Destruction complete after 0s[0m[0m
+[0m[1maws_s3_bucket_object.get-object: Destruction complete after 1s[0m[0m
+[0m[1maws_s3_bucket.b: Destroying... [id=unbfaas][0m[0m
+[0m[1maws_iam_role.faas-evaluation: Destruction complete after 1s[0m[0m
+[0m[1maws_dynamodb_table.ddbtable: Destruction complete after 3s[0m[0m
+[0m[1maws_s3_bucket.b: Destruction complete after 1s[0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 10s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 20s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 30s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 40s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 50s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m0s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m10s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m20s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m30s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m40s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Still destroying... [id=8bdix9zn7a, 1m50s elapsed][0m[0m
+[0m[1maws_api_gateway_rest_api.get-rest-api: Destruction complete after 1m53s[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 46 destroyed.[0m

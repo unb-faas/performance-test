@@ -37,9 +37,9 @@ for i in $PROVIDERS; do
     echo "Provisioning ${i} environment..."
     cd ../blueprints/$i
     terraform init >> /dev/null
-    terraform apply -auto-approve
+    terraform apply -auto-approve > last-provision.log
+    for x in $FAAS; do
+        cat last-provision.log | grep faas_aws_${x}_url | awk -F" = " '{print $2}' > "url_${x}.tmp"
+    done
     cd - >> /dev/null
 done 
-
-
-
