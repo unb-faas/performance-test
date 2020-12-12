@@ -172,7 +172,6 @@ resource "aws_iam_policy" "dynamodb-policy" {
                 }
             }
         }
-    ]
 }
 EOF
 }
