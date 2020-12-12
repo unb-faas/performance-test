@@ -1,5 +1,5 @@
-# performance-test
-Performance test on AWS, GCP and Azure
+# FaaS performance evaluation
+Performance test execution on AWS, GCP and Azure
 
 Run script strategy
 
@@ -13,3 +13,15 @@ Run script strategy
 - Deprovision service using Terraform blueprints
 - Shut down machine (if --restart-on-end is present on run script command)
 
+# Create temporary credentials files
+ - blueprints/aws/credentials
+ - blueprints/gcp/credentials
+ - blueprints/azure/credentials
+
+# Provision
+`cd scripts`
+`./provision.sh`
+
+# Unrovision
+`cd scripts`
+`./unprovision.sh`
