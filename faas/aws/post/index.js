@@ -24,7 +24,7 @@ exports.handler = async event => {
     await dynamoDb.put(params).promise()
     return processResponse(IS_CORS);
   } catch (error) {
-    let errorResponse = `Error: Execution update, caused a Dynamodb error, please look at your logs.`;
+    let errorResponse = `Error: Execution save, caused a Dynamodb error, please look at your logs.`;
     if (error.code === 'ValidationException') {
       if (error.message.includes('reserved keyword')) errorResponse = `Error: You're using AWS reserved keywords as attributes`;
     }

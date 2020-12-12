@@ -1,0 +1,7 @@
+credentials
+.terraform*
+*.tfstate*
+aws-credentials.tmp
+gcp-credentials.tmp
+azure-credentials.tmp
+*.zip

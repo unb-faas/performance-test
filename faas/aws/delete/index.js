@@ -38,7 +38,7 @@ exports.handler = async event => {
     const result = await dynamoDb.delete(params).promise();
     return processResponse(IS_CORS, result);
   } catch (dbError) {
-    let errorResponse = `Error: Execution update, caused a Dynamodb error, please look at your logs.`;
+    let errorResponse = `Error: Execution delete, caused a Dynamodb error, please look at your logs.`;
     if (dbError.code === 'ValidationException') {
       if (dbError.message.includes('reserved keyword')) errorResponse = `Error: You're using AWS reserved keywords as attributes`;
     }
