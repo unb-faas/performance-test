@@ -5,9 +5,9 @@
 const AWS = require('aws-sdk');
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const processResponse = require('./process-response');
-const TABLE_NAME = "covid19";
+const TABLE_NAME = process.env.TABLE_NAME;
+const PK = process.env.PK;
 const IS_CORS = true;
-const PRIMARY_KEY = "pk";
 
 exports.handler = async event => {
   
@@ -29,7 +29,7 @@ exports.handler = async event => {
   }
 
   const keyN = {};
-  keyN[PRIMARY_KEY] = requestedItemId;
+  keyN[PK] = requestedItemId;
   const params = {
     TableName: TABLE_NAME,
     Key: keyN

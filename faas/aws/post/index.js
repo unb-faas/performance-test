@@ -5,8 +5,9 @@ const AWS = require('aws-sdk');
 
 const dynamoDb = new AWS.DynamoDB.DocumentClient();
 const processResponse = require('./process-response.js');
-const TABLE_NAME = "covid19"
-const  IS_CORS = true;
+const TABLE_NAME = process.env.TABLE_NAME;
+const PK = process.env.PK;
+const IS_CORS = true;
 exports.handler = async event => {
   if (event.httpMethod === 'OPTIONS') {
     return processResponse(IS_CORS);
@@ -15,7 +16,7 @@ exports.handler = async event => {
     return processResponse(IS_CORS, 'invalid', 400);
   }
   const item = JSON.parse(event.body);
-  item['pk'] = getID();
+  item[PK] = getID();
   const params = {
     TableName: TABLE_NAME,
     Item: item
