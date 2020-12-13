@@ -7,4 +7,5 @@ azure-credentials.tmp
 *.zip
 *.tmp
 *.csv
+*.log
 *url_*

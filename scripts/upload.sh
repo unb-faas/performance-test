@@ -5,8 +5,8 @@ URL="https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-07-12
 FILE="INFLUD-07-12-2020.csv"
 BASELINE=$(date +%Y%m%d%H%M%S)
 WAIT_TIME=5 #SECONDS
-BLOCKSIZE=100
-RECORDS=5000
+BLOCKSIZE=50
+RECORDS=100
 MODE="upload"
 if test -f $FILE; then
     echo "File $FILE OK"
@@ -186,7 +186,7 @@ for i in $PROVIDERS; do
     mkdir -p ../results/$MODE/$BASELINE/$i/RAW
     while IFS= read -r line;do
         URLt=$(cat ../blueprints/$i/url_post.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
-        echo $( echo "begin:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT; curl -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT ; echo -e "\nend:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT) & 
+        echo $( echo "begin:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT; curl -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT ; echo -e "\nend:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT)
         CONT=$((CONT + 1))
         if [ $(expr $CONT % $BLOCKSIZE) -eq 0 ]; then
             # Let server breath a lithe bit
@@ -195,3 +195,4 @@ for i in $PROVIDERS; do
     done < "${FILE}.json-inline.tmp"
     CONT=0
 done
+echo "Upload finished"

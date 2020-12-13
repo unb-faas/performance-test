@@ -6,10 +6,11 @@ WAIT_TIME=5 #SECONDS
 BLOCKSIZE=100
 MODE="delete"
 CONT=0
+MAX_REVOLUTIONS=1000
 for i in $PROVIDERS; do
     mkdir -p ../results/$MODE/$BASELINE/$i/RAW
-    curl -s $(cat ../blueprints/aws/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
-    while [ `echo $IDS | wc -l` -ne 0 ]; do
+    curl -s $(cat ../blueprints/$i/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
+    while [ $CONT -lt $MAX_REVOLUTIONS ]; do
         while IFS= read -r line;do
             echo "$line"
             URLt=$(cat ../blueprints/$i/url_$MODE.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
@@ -20,7 +21,8 @@ for i in $PROVIDERS; do
                 sleep $WAIT_TIME
             fi    
         done < last-block-to-delete.json.tmp
-        curl -s $(cat ../blueprints/aws/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
+        curl -s $(cat ../blueprints/$i/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
     done
     CONT=0
 done
+echo "Database Cleaned"
