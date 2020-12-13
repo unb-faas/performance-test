@@ -11,7 +11,7 @@ resource "google_storage_bucket_object" "archive-basic" {
 resource "google_cloudfunctions_function" "function-basic" {
   name        = "function-basic-${random_integer.ri.result}"
   description = "My function basic"
-  runtime     = "nodejs10"
+  runtime     = "nodejs12"
 
   available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.bucket-basic.name

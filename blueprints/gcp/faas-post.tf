@@ -11,7 +11,7 @@ resource "google_storage_bucket_object" "archive-post" {
 resource "google_cloudfunctions_function" "function-post" {
   name        = "function-post-${random_integer.ri.result}"
   description = "My function post"
-  runtime     = "nodejs10"
+  runtime     = "nodejs12"
 
   available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.bucket-post.name
