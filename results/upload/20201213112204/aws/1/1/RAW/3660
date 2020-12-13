@@ -1,0 +1,17 @@
+begin:1607869573246732833\n
+HTTP/2 204 
+date: Sun, 13 Dec 2020 14:26:13 GMT
+x-amzn-requestid: 5478c536-c527-4ae5-a889-8128dad4f2ff
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token
+x-amz-apigw-id: Xfqk4Ho0oAMF7wA=
+access-control-allow-methods: OPTIONS,POST
+x-amzn-trace-id: Root=1-5fd62485-6917941e7cd288112dfc5c22;Sampled=0
+access-control-max-age: 86400
+x-cache: Miss from cloudfront
+via: 1.1 5e7b840a88d950743b5369729f00b867.cloudfront.net (CloudFront)
+x-amz-cf-pop: GIG51-C2
+x-amz-cf-id: TkKy5BitHD_SoOJrw7F8mVxodB2xgLTpJgb0XFbz3_i-2BNlMC8pJw==
+
+
+end:1607869573661985844

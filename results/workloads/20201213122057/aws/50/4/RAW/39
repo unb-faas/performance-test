@@ -1,0 +1,15 @@
+begin:1607873311556433565
+HTTP/2 502 
+content-type: application/json
+content-length: 36
+date: Sun, 13 Dec 2020 15:28:34 GMT
+x-amzn-requestid: 360b34fd-c5dd-46f8-a804-9bfdfe9e6b56
+x-amzn-errortype: InternalServerErrorException
+x-amz-apigw-id: Xfzs_Hw_oAMFi3A=
+x-cache: Error from cloudfront
+via: 1.1 127c227da4c9fa0d4b196bdea8873a59.cloudfront.net (CloudFront)
+x-amz-cf-pop: GRU3-C1
+x-amz-cf-id: yzv_lICuIqAiY2xRJCbSa3C2eLqHN5WaDXB08eAzpb3n00p-1_9hiw==
+
+{"message": "Internal server error"}
+end:1607873315261751431
