@@ -8,18 +8,23 @@ MODE="delete"
 CONT=0
 MAX_REVOLUTIONS=1000
 for i in $PROVIDERS; do
-    mkdir -p ../results/$MODE/$BASELINE/$i/RAW
+    RESULTS_PATH="../results/$MODE/$BASELINE/$i/1/1/RAW"
+    mkdir -p $RESULTS_PATH
     curl -s $(cat ../blueprints/$i/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
+    echo -e "\nDeleting records..."
     while [ $CONT -lt $MAX_REVOLUTIONS ]; do
         while IFS= read -r line;do
-            echo "$line"
             URLt=$(cat ../blueprints/$i/url_$MODE.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
-            echo $( echo "begin:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT; curl -s -i "${URLt}?id=${line}" -X DELETE -H 'Content-Type: application/json' >> ../results/$MODE/$BASELINE/$i/RAW/$CONT ; echo -e "\nend:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT) & 
+            echo -e "$line \c $( \
+                    echo -e "begin:`date +%s%N`\n" >> $RESULTS_PATH/$CONT; \
+                    curl -s -i "${URLt}?id=${line}" -X DELETE -H 'Content-Type: application/json' >> $RESULTS_PATH/$CONT ; \
+                    echo -e "\nend:`date +%s%N`" >> $RESULTS_PATH/$CONT)" & 
             CONT=$((CONT + 1))
             if [ $(expr $CONT % $BLOCKSIZE) -eq 0 ]; then
                 # Let server breath a lithe bit
+                echo -e "Waiting ${WAIT_TIME}s ..."
                 sleep $WAIT_TIME
-            fi    
+            fi
         done < last-block-to-delete.json.tmp
         curl -s $(cat ../blueprints/$i/url_get.tmp) | jq -c .[].id > last-block-to-delete.json.tmp
     done

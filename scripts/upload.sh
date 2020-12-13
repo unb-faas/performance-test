@@ -5,8 +5,8 @@ URL="https://s3-sa-east-1.amazonaws.com/ckan.saude.gov.br/SRAG/2020/INFLUD-07-12
 FILE="INFLUD-07-12-2020.csv"
 BASELINE=$(date +%Y%m%d%H%M%S)
 WAIT_TIME=5 #SECONDS
-BLOCKSIZE=50
-RECORDS=100
+BLOCKSIZE=300
+RECORDS=10
 MODE="upload"
 if test -f $FILE; then
     echo "File $FILE OK"
@@ -183,10 +183,15 @@ jq --slurp --raw-input --raw-output \
 cat "${FILE}.json.tmp" | jq -c .[] > "${FILE}.json-inline.tmp"
 CONT=0
 for i in $PROVIDERS; do
-    mkdir -p ../results/$MODE/$BASELINE/$i/RAW
+    RESULTS_PATH="../results/$MODE/$BASELINE/$i/1/1/RAW"
+    mkdir -p $RESULTS_PATH
     while IFS= read -r line;do
         URLt=$(cat ../blueprints/$i/url_post.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
-        echo $( echo "begin:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT; curl -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT ; echo -e "\nend:`date +%s%N`" >> ../results/$MODE/$BASELINE/$i/RAW/$CONT)
+        echo -e "$CONT \c$(                                                                         \
+                echo "begin:`date +%s%N`\n" >> $RESULTS_PATH/$CONT;   \
+                curl -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> $RESULTS_PATH/$CONT ; \
+                echo -e "\nend:`date +%s%N`" >> $RESULTS_PATH/$CONT \
+              )" &
         CONT=$((CONT + 1))
         if [ $(expr $CONT % $BLOCKSIZE) -eq 0 ]; then
             # Let server breath a lithe bit
