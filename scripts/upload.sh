@@ -6,7 +6,7 @@ FILE="INFLUD-07-12-2020.csv"
 BASELINE=$(date +%Y%m%d%H%M%S)
 WAIT_TIME=5 #SECONDS
 BLOCKSIZE=300
-RECORDS=2
+RECORDS=10000
 TIMEOUT=600 #10 MINUTES
 MODE="upload"
 if test -f $FILE; then
@@ -184,13 +184,18 @@ jq --slurp --raw-input --raw-output \
 cat "${FILE}.json.tmp" | jq -c .[] > "${FILE}.json-inline.tmp"
 CONT=0
 for i in $PROVIDERS; do
+    PROVIDER=$i
+    if [ "$PROVIDER" == "gcp" ]; then
+        EXTRA_BEGIN='{"value":'
+        EXTRA_END='}'
+    fi
     RESULTS_PATH="../results/$MODE/$BASELINE/$i/1/1/RAW"
     mkdir -p $RESULTS_PATH
     while IFS= read -r line;do
         URLt=$(cat ../blueprints/$i/url_post.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
         echo -e "$CONT \c$(                                                                         \
                 echo "begin:`date +%s%N`" >> $RESULTS_PATH/$CONT;   \
-                curl -m $TIMEOUT -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> $RESULTS_PATH/$CONT ; \
+                curl -m $TIMEOUT -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${EXTRA_BEGIN}${line}${EXTRA_END}" >> $RESULTS_PATH/$CONT ; \
                 echo -e "\nend:`date +%s%N`" >> $RESULTS_PATH/$CONT \
               )" &
         CONT=$((CONT + 1))

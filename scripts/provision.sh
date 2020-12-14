@@ -1,7 +1,7 @@
 #/bin/bash
-PROVIDERS="azure"
+PROVIDERS="aws"
 FAAS="get post delete"
-FAAS="post"
+FAAS="get post delete"
 echo "Checking requirements..."
 if ! command -v terraform &> /dev/null
 then
@@ -50,9 +50,9 @@ for i in $PROVIDERS; do
             "
     fi
     terraform init >> /dev/null 
-    terraform apply $VARS -auto-approve #> last-provision.log
+    terraform apply $VARS -auto-approve > last-provision.log
     for x in $FAAS; do
-        cat last-provision.log | grep faas_aws_${x}_url | awk -F" = " '{print $2}' > "url_${x}.tmp"
+        cat last-provision.log | grep faas_${PROVIDER}_${x}_url | awk -F" = " '{print $2}' > "url_${x}.tmp"
     done
     cd - >> /dev/null
 done 
