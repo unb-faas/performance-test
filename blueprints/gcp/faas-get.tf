@@ -5,7 +5,7 @@ resource "google_storage_bucket" "bucket-get" {
 resource "google_storage_bucket_object" "archive-get" {
   name   = "get.zip"
   bucket = google_storage_bucket.bucket-get.name
-  source = "${var.funcget}"
+  source = var.funcget
 }
 
 resource "google_cloudfunctions_function" "function-get" {
@@ -13,11 +13,14 @@ resource "google_cloudfunctions_function" "function-get" {
   description = "My function get"
   runtime     = "nodejs12"
 
-  available_memory_mb   = 128
+  available_memory_mb   = var.memory
   source_archive_bucket = google_storage_bucket.bucket-get.name
   source_archive_object = google_storage_bucket_object.archive-get.name
   trigger_http          = true
-  entry_point           = "helloGET"
+  entry_point           = "get"
+  environment_variables = {
+    TABLE_NAME = var.table_name
+  }
 }
 
 # IAM entry for all users to invoke the function

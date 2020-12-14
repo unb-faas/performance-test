@@ -67,6 +67,9 @@ exports.set = async (req, res) => {
     return;
   }
 
+  req.body.key = getID()
+  req.body.kind = process.env.TABLE_NAME
+
   try {
     const key = await getKeyFromRequestData(req.body);
     const entity = {
@@ -80,60 +83,13 @@ exports.set = async (req, res) => {
     console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
     res.status(500).send(err.message);
   }
-};
 
-/**
- * Retrieves a record.
- *
- * @example
- * gcloud functions call get --data '{"kind":"Task","key":"sampletask1"}'
- *
- * @param {object} req Cloud Function request context.
- * @param {object} req.body The request body.
- * @param {string} req.body.kind The Datastore kind of the data to retrieve, e.g. "Task".
- * @param {string} req.body.key Key at which to retrieve the data, e.g. "sampletask1".
- * @param {object} res Cloud Function response context.
- */
-exports.get = async (req, res) => {
-  try {
-    const key = await getKeyFromRequestData(req.body);
-    const [entity] = await datastore.get(key);
-
-    // The get operation returns an empty dictionary for non-existent entities
-    // We want to throw an error instead
-    if (!entity) {
-      throw new Error(`No entity found for key ${key.path.join('/')}.`);
-    }
-
-    res.status(200).send(entity);
-  } catch (err) {
-    console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
-    res.status(500).send(err.message);
+  function getID(){
+    const hrTime = process.hrtime()
+    const microTime = hrTime[0] * 1000000 + hrTime[1] / 1000
+    return parseInt(microTime)
   }
+
 };
 
-/**
- * Deletes a record.
- *
- * @example
- * gcloud functions call del --data '{"kind":"Task","key":"sampletask1"}'
- *
- * @param {object} req Cloud Function request context.
- * @param {object} req.body The request body.
- * @param {string} req.body.kind The Datastore kind of the data to delete, e.g. "Task".
- * @param {string} req.body.key Key at which to delete data, e.g. "sampletask1".
- * @param {object} res Cloud Function response context.
- */
-exports.del = async (req, res) => {
-  // Deletes the entity
-  // The delete operation will not fail for a non-existent entity, it just
-  // doesn't delete anything
-  try {
-    const key = await getKeyFromRequestData(req.body);
-    await datastore.delete(key);
-    res.status(200).send(`Entity ${key.path.join('/')} deleted.`);
-  } catch (err) {
-    console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
-    res.status(500).send(err.message);
-  }
-};
+

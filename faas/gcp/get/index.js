@@ -46,43 +46,6 @@ const getKeyFromRequestData = requestData => {
 };
 
 /**
- * Creates and/or updates a record.
- *
- * @example
- * gcloud functions call set --data '{"kind":"Task","key":"sampletask1","value":{"description": "Buy milk"}}'
- *
- * @param {object} req Cloud Function request context.
- * @param {object} req.body The request body.
- * @param {string} req.body.kind The Datastore kind of the data to save, e.g. "Task".
- * @param {string} req.body.key Key at which to save the data, e.g. "sampletask1".
- * @param {object} req.body.value Value to save to Cloud Datastore, e.g. {"description":"Buy milk"}
- * @param {object} res Cloud Function response context.
- */
-exports.set = async (req, res) => {
-  // The value contains a JSON document representing the entity we want to save
-  if (!req.body.value) {
-    const err = makeErrorObj('Value');
-    console.error(err);
-    res.status(500).send(err.message);
-    return;
-  }
-
-  try {
-    const key = await getKeyFromRequestData(req.body);
-    const entity = {
-      key: key,
-      data: req.body.value,
-    };
-
-    await datastore.save(entity);
-    res.status(200).send(`Entity ${key.path.join('/')} saved.`);
-  } catch (err) {
-    console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
-    res.status(500).send(err.message);
-  }
-};
-
-/**
  * Retrieves a record.
  *
  * @example
@@ -96,44 +59,19 @@ exports.set = async (req, res) => {
  */
 exports.get = async (req, res) => {
   try {
-    const key = await getKeyFromRequestData(req.body);
-    const [entity] = await datastore.get(key);
-
-    // The get operation returns an empty dictionary for non-existent entities
-    // We want to throw an error instead
-    if (!entity) {
-      throw new Error(`No entity found for key ${key.path.join('/')}.`);
-    }
-
-    res.status(200).send(entity);
+    const limit = 20
+    const dataBaseSize = 200
+    const lastOffSet = dataBaseSize / limit
+    const query = datastore.createQuery(process.env.TABLE_NAME).limit(limit).offset(getRandomArbitrary(0,lastOffSet))
+    const list = await datastore.runQuery(query)
+    res.status(200).send(list[0]);
   } catch (err) {
     console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
     res.status(500).send(err.message);
   }
+
 };
 
-/**
- * Deletes a record.
- *
- * @example
- * gcloud functions call del --data '{"kind":"Task","key":"sampletask1"}'
- *
- * @param {object} req Cloud Function request context.
- * @param {object} req.body The request body.
- * @param {string} req.body.kind The Datastore kind of the data to delete, e.g. "Task".
- * @param {string} req.body.key Key at which to delete data, e.g. "sampletask1".
- * @param {object} res Cloud Function response context.
- */
-exports.del = async (req, res) => {
-  // Deletes the entity
-  // The delete operation will not fail for a non-existent entity, it just
-  // doesn't delete anything
-  try {
-    const key = await getKeyFromRequestData(req.body);
-    await datastore.delete(key);
-    res.status(200).send(`Entity ${key.path.join('/')} deleted.`);
-  } catch (err) {
-    console.error(new Error(err.message)); // Add to Stackdriver Error Reporting
-    res.status(500).send(err.message);
-  }
-};
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}

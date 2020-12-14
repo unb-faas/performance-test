@@ -5,7 +5,7 @@ resource "google_storage_bucket" "bucket-delete" {
 resource "google_storage_bucket_object" "archive-delete" {
   name   = "delete.zip"
   bucket = google_storage_bucket.bucket-delete.name
-  source = "${var.funcdelete}"
+  source = var.funcdelete
 }
 
 resource "google_cloudfunctions_function" "function-delete" {
@@ -13,11 +13,14 @@ resource "google_cloudfunctions_function" "function-delete" {
   description = "My function delete"
   runtime     = "nodejs12"
 
-  available_memory_mb   = 128
+  available_memory_mb   = var.memory
   source_archive_bucket = google_storage_bucket.bucket-delete.name
   source_archive_object = google_storage_bucket_object.archive-delete.name
   trigger_http          = true
-  entry_point           = "helloGET"
+  entry_point           = "del"
+  environment_variables = {
+    TABLE_NAME = var.table_name
+  }
 }
 
 # IAM entry for all users to invoke the function

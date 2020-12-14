@@ -14,25 +14,17 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
 # ----------------------------------------------------------------------------------------------------------------------
-variable "name_suffix" {
-  type        = "string"
-  default     = "suffix"
-}
 
-variable "funcbasic" {
-    type = "string"
-    default = "../../faas/gcp/basic/basic.zip"
-}
 variable "funcdelete" {
-    type = "string"
+    type = string
     default = "../../faas/gcp/delete/delete.zip"
 }
 variable "funcget" {
-    type = "string"
+    type = string
     default = "../../faas/gcp/get/get.zip"
 }
 variable "funcpost" {
-    type = "string"
+    type = string
     default = "../../faas/gcp/post/post.zip"
 }
 variable "user_groups" {
@@ -42,11 +34,26 @@ variable "user_groups" {
 }
 
 variable "project_id" {
-  type    = "string"
-  default = "terraform"
+  type    = string
+  default = "lessons-295117"
 }
 
-variable "regiao" {
-  type = "string"
-  default = "northamerica-northeast1"
+variable "region" {
+  type = string
+  //default = "northamerica-northeast1"
+  default = "us-central1"
 }
+
+variable "table_name" {
+  type = string
+  default = "covid19"
+}
+
+
+variable "memory" {
+  type = number
+  default = 128
+}
+
+
+

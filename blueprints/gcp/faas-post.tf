@@ -13,11 +13,14 @@ resource "google_cloudfunctions_function" "function-post" {
   description = "My function post"
   runtime     = "nodejs12"
 
-  available_memory_mb   = 128
+  available_memory_mb   = var.memory
   source_archive_bucket = google_storage_bucket.bucket-post.name
   source_archive_object = google_storage_bucket_object.archive-post.name
   trigger_http          = true
-  entry_point           = "helloGET"
+  entry_point           = "set"
+  environment_variables = {
+    TABLE_NAME = var.table_name
+  }
 }
 
 # IAM entry for all users to invoke the function
