@@ -6,6 +6,7 @@ WAIT_TIME=5 #SECONDS
 BLOCKSIZE=100
 MODE="delete"
 CONT=0
+TIMEOUT=600 #10 MINUTES
 MAX_REVOLUTIONS=1000
 for i in $PROVIDERS; do
     RESULTS_PATH="../results/$MODE/$BASELINE/$i/1/1/RAW"
@@ -16,8 +17,8 @@ for i in $PROVIDERS; do
         while IFS= read -r line;do
             URLt=$(cat ../blueprints/$i/url_$MODE.tmp | sed -e 's/[^a-zA-Z*0-9*\/*\.*:*-]//g' | sed -e 's/0m//g'  )
             echo -e "$line \c $( \
-                    echo -e "begin:`date +%s%N`\n" >> $RESULTS_PATH/$CONT; \
-                    curl -s -i "${URLt}?id=${line}" -X DELETE -H 'Content-Type: application/json' >> $RESULTS_PATH/$CONT ; \
+                    echo -e "begin:`date +%s%N`" >> $RESULTS_PATH/$CONT; \
+                    curl -m $TIMEOUT -s -i "${URLt}?id=${line}" -X DELETE -H 'Content-Type: application/json' >> $RESULTS_PATH/$CONT ; \
                     echo -e "\nend:`date +%s%N`" >> $RESULTS_PATH/$CONT)" & 
             CONT=$((CONT + 1))
             if [ $(expr $CONT % $BLOCKSIZE) -eq 0 ]; then

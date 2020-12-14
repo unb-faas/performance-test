@@ -1,6 +1,7 @@
 #/bin/bash
-PROVIDERS="aws"
+PROVIDERS="azure"
 FAAS="get post delete"
+FAAS="post"
 echo "Checking requirements..."
 if ! command -v terraform &> /dev/null
 then
@@ -34,10 +35,22 @@ for i in $PROVIDERS; do
 done 
 
 for i in $PROVIDERS; do
-    echo "Provisioning ${i} environment..."
-    cd ../blueprints/$i
-    terraform init >> /dev/null
-    terraform apply -auto-approve > last-provision.log
+    PROVIDER=$i
+    echo "Provisioning ${PROVIDER} environment..."
+    cd ../blueprints/$PROVIDER
+    if [ "${PROVIDER}" == "azure" ]; then
+        CLIENT_ID=$(cat credentials | grep client_id | awk -F: '{print $2}')
+        CLIENT_SECRET=$(cat credentials | grep client_secret | awk -F: '{print $2}')
+        TENANT_ID=$(cat credentials | grep tenant_id | awk -F: '{print $2}')
+        SUBSCRIPTION_ID=$(cat credentials | grep subscription_id | awk -F: '{print $2}')
+        VARS="  -var client_secret=${CLIENT_SECRET} \
+                -var client_id=${CLIENT_ID} \
+                -var subscription_id=${SUBSCRIPTION_ID} \
+                -var tenant_id=${TENANT_ID} \
+            "
+    fi
+    terraform init >> /dev/null 
+    terraform apply $VARS -auto-approve #> last-provision.log
     for x in $FAAS; do
         cat last-provision.log | grep faas_aws_${x}_url | awk -F" = " '{print $2}' > "url_${x}.tmp"
     done

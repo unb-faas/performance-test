@@ -1,5 +1,5 @@
 #/bin/bash
-PROVIDERS="aws"
+PROVIDERS="azure"
 FAAS="get post delete"
 echo "Checking requirements..."
 if ! command -v terraform &> /dev/null
@@ -21,10 +21,23 @@ done
 echo "Requirements...OK"
 
 for i in $PROVIDERS; do
+    PROVIDER=$i
     echo "Unprovisioning ${i} environment..."
     cd ../blueprints/$i
+    if [ "${PROVIDER}" == "azure" ]; then
+        CLIENT_ID=$(cat credentials | grep client_id | awk -F: '{print $2}')
+        CLIENT_SECRET=$(cat credentials | grep client_secret | awk -F: '{print $2}')
+        TENANT_ID=$(cat credentials | grep tenant_id | awk -F: '{print $2}')
+        SUBSCRIPTION_ID=$(cat credentials | grep subscription_id | awk -F: '{print $2}')
+        VARS="  -var client_secret=${CLIENT_SECRET} \
+                -var client_id=${CLIENT_ID} \
+                -var subscription_id=${SUBSCRIPTION_ID} \
+                -var tenant_id=${TENANT_ID} \
+            "
+    fi
     terraform init >> /dev/null
-    terraform destroy -auto-approve >> last-unprovision.log
+    terraform destroy $VARS  -auto-approve
+    # >> last-unprovision.log
     for x in $FAAS; do
         rm -f "url_${x}.tmp"
     done

@@ -1,11 +1,12 @@
 #/bin/bash
 PROVIDERS="aws"
 #CONCURRENCE="10 20 30 40 50 60 70 80 90 100"
-REPETITIONS=2
-CONCURRENCE="10"
+REPETITIONS=5
+CONCURRENCE="10 30 50 70 100 150 200"
 BASELINE=$(date +%Y%m%d%H%M%S)
-WAIT_TIME=3 #SECONDS
+WAIT_TIME=30 #SECONDS
 MODE="workloads"
+TIMEOUT=600 #10 MINUTES
 PARAMS_FILE="../results/${MODE}/${BASELINE}/params.txt"
 mkdir -p "../results/${MODE}/${BASELINE}"
 echo "providers:$PROVIDERS"     >> $PARAMS_FILE
@@ -28,8 +29,8 @@ for i in $PROVIDERS; do
                 RESULTS_PATH="../results/${MODE}/${BASELINE}/${PROVIDER}/${CONCURRENCE_NOW}/${REPETITION_NOW}/RAW"
                 mkdir -p $RESULTS_PATH
                 echo -e "$CONT \c$(                                                     \
-                    echo -e "begin:`date +%s%N`\n" >> $RESULTS_PATH/$CONT;       \
-                    curl -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> $RESULTS_PATH/$CONT ; \
+                    echo -e "begin:`date +%s%N`" >> $RESULTS_PATH/$CONT;       \
+                    curl -m $TIMEOUT -s -i $URLt -X POST -H 'Content-Type: application/json' --data "${line}" >> $RESULTS_PATH/$CONT ; \
                     echo -e "\nend:`date +%s%N`" >> $RESULTS_PATH/$CONT;    \
                 )" &
                 CONT=$((CONT + 1))
