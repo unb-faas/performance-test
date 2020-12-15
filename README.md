@@ -5,7 +5,7 @@ Performance test execution on Function as a Services
 
 This project aims to promote performance tests in Function as a Service of several providers using different approaches on different levels of competition.
 
-## Archtecture
+## Architecture
 
 - FaaS as API REST to a noSQL DBaaS
 
