@@ -9,7 +9,7 @@ This project aims to promote performance tests in Function as a Service of sever
 
 - FaaS as API REST to a noSQL DBaaS
 
-## Operational FaaS
+## Operational FaaS Integration
  - Amazon Web Services Lambda
  - Google Cloud Function
 
