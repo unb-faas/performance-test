@@ -1,3 +1,0 @@
-avg-execution-time:1426003708
-count-executions:800
-errors:0
