@@ -1,5 +1,5 @@
 #/bin/bash
-PROVIDERS="gcp"
+PROVIDERS="gcp aws"
 FAAS="get post delete"
 echo "Checking requirements..."
 if ! command -v terraform &> /dev/null
