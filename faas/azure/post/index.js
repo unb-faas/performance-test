@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var ObjectId = require('mongodb').ObjectID;
-var url = 'mongodb://ac-cosmos-db-23734:3mzcIVNaw1P11he1JYnxCC1V1gap4Maae5foErH2LmP8dBA5Nvp5OBFED1bXMnJgZkD18kVgzhzuzRBfNP9uIQ==@ac-cosmos-db-23734.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@ac-cosmos-db-23734@';
+var url = 'mongodb://';
 
 var insertDocument = function(db, callback) {
 db.collection('families').insertOne( {
