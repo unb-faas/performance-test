@@ -1,9 +1,16 @@
-resource "aws_s3_bucket" "b" {
-  bucket = "unbfaas"
+resource "random_string" "random" {
+  length           = 4
+  special          = false
+  upper            = false
+  override_special = "/@£$"
+}
+
+resource "aws_s3_bucket" "bkt" {
+  bucket = "unbfaas-${random_string.random.result}"
   acl    = "private"
 
   tags = {
-    Name        = "faas-envaluation"
+    Name        = "faas-evaluation"
     Environment = "evaluation"
   }
 }

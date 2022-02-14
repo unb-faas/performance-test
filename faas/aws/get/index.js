@@ -32,7 +32,7 @@ exports.handler = async event => {
 };
 
 function getSegment(){
-    return getRandomArbitrary(0,LIMIT)
+    return 100
 }
 
 function getRandomArbitrary(min, max) {

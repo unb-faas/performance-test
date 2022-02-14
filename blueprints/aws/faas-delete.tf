@@ -1,12 +1,15 @@
 resource "aws_s3_bucket_object" "delete-object" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.bkt.id
   key    = "delete.zip"
   source = "../../faas/aws/delete/delete.zip"
+  depends_on = [
+      aws_s3_bucket.bkt
+  ]
 }
 
 resource "aws_lambda_function" "delete-faas" { 
   function_name = "faas-evaluation-delete"
-  s3_bucket     = aws_s3_bucket.b.id
+  s3_bucket     = aws_s3_bucket.bkt.id
   s3_key        = "delete.zip"
   role          = aws_iam_role.faas-evaluation.arn
   handler       = "index.handler"

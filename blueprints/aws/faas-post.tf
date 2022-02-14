@@ -1,12 +1,15 @@
 resource "aws_s3_bucket_object" "post-object" {
-  bucket = aws_s3_bucket.b.id
+  bucket = aws_s3_bucket.bkt.id
   key    = "post.zip"
   source = "../../faas/aws/post/post.zip"
+  depends_on = [
+      aws_s3_bucket.bkt
+  ]
 }
 
 resource "aws_lambda_function" "post-faas" { 
   function_name = "faas-evaluation-post"
-  s3_bucket     = aws_s3_bucket.b.id
+  s3_bucket     = aws_s3_bucket.bkt.id
   s3_key        = "post.zip"
   role          = aws_iam_role.faas-evaluation.arn
   handler       = "index.handler"
